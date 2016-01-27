@@ -35,15 +35,12 @@ module NewRelic
     class Agent < NewRelic::Plugin::Agent::Base
       agent_guid 'com.pivotal.newrelic.plugin.rabbitmq'
       agent_version '1.0.5'
-      agent_config_options :management_api_url, :debug
-      agent_human_labels('RabbitMQ') do
-        uri = URI.parse(management_api_url)
-        "#{uri.host}:#{uri.port}"
-      end
+      agent_config_options :management_api_url, :debug, :name
+      agent_human_labels('ElasticSearch') { name }
 
       def poll_cycle
         begin
-          if "#{self.debug}" == "true" 
+          if "#{self.debug}" == "true"
             puts "[RabbitMQ] Debug Mode On: Metric data will not be sent to new relic"
           end
 
@@ -65,7 +62,7 @@ module NewRelic
 
         rescue Exception => e
           $stderr.puts "[RabbitMQ] Exception while processing metrics. Check configuration."
-          $stderr.puts e.message  
+          $stderr.puts e.message
           if "#{self.debug}" == "true"
             $stderr.puts e.backtrace.inspect
           end

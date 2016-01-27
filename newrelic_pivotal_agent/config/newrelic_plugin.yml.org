@@ -1,11 +1,11 @@
 # Please make sure to update the license_key information with the license key for your New Relic
 # account.
 #
-# This configuration file holds examples for all plugins. You only need to uncomment 
+# This configuration file holds examples for all plugins. You only need to uncomment
 # the lines for the product you are using.
 #
 # Example configuration is shown below. Uncomment (remove #) the needed lines for
-# your environment. 
+# your environment.
 #
 #
 newrelic:
@@ -22,10 +22,10 @@ newrelic:
 # Agent Configuration:
 #
 agents:
-# 
+#
 # NOTE: You must uncomment and configure the plugins you want to use. By default they are
 # all disabled.
-# 
+#
 # Configuration for RabbitMQ
   rabbitmq:
     # Must enable rabbit management plugin
@@ -36,6 +36,8 @@ agents:
     # RabbitMQ Default URL versions prior to 3.0
     #management_api_url: http://guest:guest@localhost:55672
     #
+    # Name of node
+    #name: rabbitmq-dev
     # Set "debug: true" to see additional debug output
     # Note: This logs the metrics locally and does not send data to new relic.
     #debug: false
@@ -75,5 +77,3 @@ agents:
       #debug: false
       # Set "testrun: true" to use input from local text/html files. Only parses input once, then quits.
       #testrun: false
-
-
