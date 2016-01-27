@@ -18,4 +18,4 @@ WORKDIR /opt/newrelic_pivotal_agent
 
 RUN ["bundle","install"]
 
-ENTRYPOINT ["./entry.sh"]
+ENTRYPOINT ["./pivotal_agent"]
